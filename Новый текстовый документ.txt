@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мейіргерлік Кеңестер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Мейіргерлік Кеңестер</h1>
+        <nav>
+            <ul>
+                <li><a href="#articles">Ғылыми мақалалар</a></li>
+                <li><a href="#tips">Денсаулық кеңестері</a></li>
+                <li><a href="#contact">Байланыс</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="articles">
+        <h2>Ғылыми мақалалар</h2>
+        <p>Мұнда біз дамыған елдердің ғылыми мақалаларын қазақ тіліне аударып, талқылаймыз.</p>
+    </section>
+
+    <section id="tips">
+        <h2>Денсаулық кеңестері</h2>
+        <p>Сіз өзіңіздің денсаулығыңызды жақсарту үшін ең маңызды кеңестерді осы жерден таба аласыз.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Бізбен байланысыңыз</h2>
+        <form id="contact-form">
+            <label for="name">Атыңыз:</label>
+            <input type="text" id="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+
+            <label for="message">Хабарлама:</label>
+            <textarea id="message" required></textarea>
+
+            <button type="submit">Жіберу</button>
+        </form>
+        <p id="response-message"></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Мейіргерлік Кеңестер. Барлық құқықтар қорғалған.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+header {
+    background: #007BFF;
+    color: white;
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: #333;
+    color: white;
+}
+document.getElementById("contact-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    if (name && email && message) {
+        document.getElementById("response-message").textContent = "Хабарламаңыз жіберілді!";
+        document.getElementById("contact-form").reset();
+    } else {
+        document.getElementById("response-message").textContent = "Барлық өрістерді толтырыңыз.";
+    }
+});
